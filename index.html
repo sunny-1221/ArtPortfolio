@@ -830,7 +830,7 @@
             let galleryData = [];
             
             try {
-                const response = await fetch('https://raw.githubusercontent.com/sunny-1221/ArtPortfolio/refs/heads/main/gallery-data.json');
+                const response = await fetch('https://raw.githubusercontent.com/sunny-1221/ArtPortfolio/main/gallery-data.json');
                 galleryData = await response.json();
                 
                 // Remove loader and render gallery
