@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny's Art & Design Gallery</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Custom Properties --- */
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --primary-dark: #3a0ca3;
+            --accent: #f72585;
+            --accent-light: #ff70a6;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --charcoal: #212529;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --section-bg: #f8f9fa;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--white); color: var(--charcoal); line-height: 1.6; }
+        .container { padding: 50px 5%; max-width: 1400px; margin: 0 auto; }
+        section { padding: 80px 0; }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px var(--shadow-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative; 
+            height: 80vh; 
+            min-height: 600px;
+            display: flex; 
+            align-items: center;
+            justify-content: center; 
+            text-align: center; 
+            color: var(--white); 
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+            z-index: -2; 
+            transform: scale(1.05);
+        }
+        
+        .hero-overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(45deg, rgba(67, 97, 238, 0.85) 0%, rgba(72, 149, 239, 0.8) 100%); 
+            z-index: -1;
+        }
+        
+        .hero-content { 
+            max-width: 800px; 
+            padding: 0 2rem; 
+            animation: fadeInDown 1s ease-out; 
+        }
+        
+        .hero h1 { 
+            font-size: 3.5rem; 
+            font-weight: 700; 
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero p { 
+            font-size: 1.25rem; 
+            font-weight: 300; 
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        /* --- Banner Section --- */
+        .banner {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin: 60px 0;
+        }
+        
+        .banner-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        /* --- Category Filters --- */
+        .category-filters { 
+            text-align: center; 
+            padding: 40px 20px 20px; 
+        }
+        
+        .filter-btn {
+            background: none; 
+            border: 1px solid var(--medium-gray); 
+            border-radius: 50px; 
+            padding: 10px 25px;
+            margin: 5px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            color: var(--dark-gray); 
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover { 
+            background: var(--gradient-primary); 
+            color: var(--white); 
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+        }
+        
+        .filter-btn.active { 
+            background: var(--gradient-primary); 
+            color: var(--white); 
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+        }
+
+        /* --- Gallery Section --- */
+        .gallery { 
+            padding: 20px 5% 50px; 
+            background-color: var(--light-gray);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .gallery-grid { 
+            column-count: 3; 
+            column-gap: 20px; 
+        }
+        
+        .gallery-item {
+            position: relative; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s; 
+            break-inside: avoid; 
+            margin-bottom: 20px;
+            cursor: pointer; 
+            animation: fadeInUp 0.5s ease-out;
+            background: var(--white);
+        }
+        
+        @keyframes fadeInUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        @keyframes fadeInDown { 
+            from { opacity: 0; transform: translateY(-20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        .gallery-item:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+        }
+        
+        .gallery-img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.5s ease; 
+        }
+        
+        .gallery-item:hover .gallery-img { 
+            transform: scale(1.05); 
+        }
+        
+        .gallery-overlay {
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px; 
+            color: white; 
+            opacity: 0; 
+            transform: translateY(10px); 
+            transition: all 0.3s ease;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-end;
+        }
+        
+        .gallery-item:hover .gallery-overlay { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        .gallery-title { 
+            font-weight: 600; 
+            margin-bottom: 5px; 
+        }
+        
+        .gallery-category { 
+            font-size: 0.9rem; 
+            opacity: 0.8; 
+        }
+
+        /* --- About Section --- */
+        .about { 
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        .section-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            margin-bottom: 40px; 
+            font-weight: 700; 
+            color: var(--charcoal); 
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .about-content { 
+            display: flex; 
+            align-items: center; 
+            gap: 60px; 
+        }
+        
+        .about-image { 
+            flex: 1; 
+            max-width: 400px; 
+            border-radius: 12px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-text { 
+            flex: 2; 
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .portfolio-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .portfolio-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        /* --- Footer --- */
+        footer { 
+            padding: 80px 5% 30px; 
+            text-align: center; 
+            background: var(--charcoal); 
+            color: var(--white); 
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient-primary);
+        }
+        
+        .footer-socials { 
+            margin-bottom: 30px; 
+        }
+        
+        .footer-socials a { 
+            color: var(--white); 
+            margin: 0 15px; 
+            font-size: 1.5rem; 
+            transition: all 0.3s; 
+            display: inline-block; 
+            transform: scale(1);
+        }
+        
+        .footer-socials a:hover { 
+            color: var(--primary-light); 
+            transform: scale(1.2); 
+        }
+        
+        .footer-bottom { 
+            margin-top: 40px; 
+            opacity: 0.7; 
+            font-size: 0.9rem; 
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- Modal --- */
+        .modal {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.9);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 1000;
+            opacity: 0; 
+            pointer-events: none; 
+            transition: opacity 0.3s; 
+            padding: 20px;
+        }
+        
+        .modal.active { 
+            opacity: 1; 
+            pointer-events: all; 
+        }
+        
+        .modal-content {
+            background: white; 
+            border-radius: 12px; 
+            width: 100%;
+            max-height: 90vh; 
+            display: flex; 
+            overflow: hidden; 
+            flex-direction: column; 
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .modal-body { 
+            display: flex; 
+            flex-direction: row; 
+            height: 100%; 
+            overflow: hidden; 
+        }
+        
+        .modal-close {
+            background: none; 
+            border: none; 
+            font-size: 2rem; 
+            cursor: pointer; 
+            color: var(--dark-gray);
+            transition: color 0.3s; 
+            position: absolute; 
+            top: 15px; 
+            right: 15px;
+            z-index: 10; 
+            background: rgba(255,255,255,0.9); 
+            width: 40px; 
+            height: 40px;
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        
+        .modal-close:hover { 
+            color: var(--accent); 
+        }
+
+        /* --- Image Detail Modal --- */
+        #image-modal .modal-content { 
+            max-width: 1100px; 
+        }
+        
+        .modal-img-container { 
+            flex: 3; 
+            background-color: #f0f0f0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; 
+        }
+        
+        .modal-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            display: block; 
+        }
+        
+        .modal-details { 
+            flex: 2; 
+            padding: 40px; 
+            overflow-y: auto; 
+        }
+        
+        .modal-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            margin-bottom: 20px; 
+        }
+        
+        .modal-title { 
+            font-size: 1.8rem; 
+            margin-bottom: 5px; 
+            color: var(--primary-dark);
+        }
+        
+        .modal-description { 
+            margin-bottom: 25px; 
+            line-height: 1.6; 
+            font-weight: 300; 
+        }
+        
+        .modal-nav {
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background: rgba(255, 255, 255, 0.9);
+            border: none; 
+            border-radius: 50%; 
+            width: 50px; 
+            height: 50px; 
+            font-size: 24px; 
+            cursor: pointer;
+            color: var(--charcoal); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+            transition: all 0.3s; 
+            z-index: 10;
+        }
+        
+        .modal-nav:hover { 
+            background: var(--white); 
+            transform: translateY(-50%) scale(1.1); 
+            color: var(--primary);
+        }
+        
+        #prev-btn { left: 20px; }
+        #next-btn { right: 20px; }
+
+        /* --- Loading Animation --- */
+        .loader {
+            display: flex;
+            justify-content: center;
+            padding: 60px;
+        }
+        
+        .loader-circle {
+            width: 15px;
+            height: 15px;
+            margin: 0 8px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        
+        .loader-circle:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .loader-circle:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 3rem; }
+            .about-content { gap: 40px; }
+        }
+        
+        @media (max-width: 992px) {
+            .gallery-grid { column-count: 2; }
+            #image-modal .modal-body { flex-direction: column; }
+            #image-modal .modal-content { max-height: 85vh; }
+            .modal-img-container { height: 50vh; }
+            .about-content { flex-direction: column; text-align: center; }
+            .about-image { margin: 0 auto 30px; }
+            .hero { height: 70vh; min-height: 500px; }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul { gap: 15px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .banner h2 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .modal-details { padding: 25px; }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid { column-count: 1; }
+            .modal-nav { width: 40px; height: 40px; font-size: 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero { height: 60vh; min-height: 400px; }
+            nav ul { gap: 12px; }
+            .banner { height: 250px; margin: 40px 0; }
+            .banner h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo"><i class="fas fa-palette"></i> Sunny's Gallery</a>
+        <nav>
+            <ul>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80" alt="Abstract Art" class="hero-background">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Where Creativity Finds Its Canvas</h1>
+            <p>A curated collection of modern art and captivating graphic designs.</p>
+            <a href="#gallery" class="hero-btn">Explore Gallery</a>
+        </div>
+    </section>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-content">
+            <h2>Discover Unique Artistic Perspectives</h2>
+            <p>Each piece tells a story, blending technique with imagination to create something truly special.</p>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="container">
+        <h2 class="section-title">Featured Works</h2>
+        
+        <!-- Category Filters -->
+        <div class="category-filters" id="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Digital Art">Digital Art</button>
+            <button class="filter-btn" data-filter="Photography">Photography</button>
+            <button class="filter-btn" data-filter="3D & Vector">3D & Vector</button>
+            <button class="filter-btn" data-filter="Typography">Typography</button>
+            <button class="filter-btn" data-filter="Posters">Posters</button>
+        </div>
+        
+        <!-- Gallery Grid -->
+        <div class="gallery">
+            <div class="gallery-grid">
+                <div class="loader">
+                    <div class="loader-circle"></div>
+                    <div class="loader-circle"></div>
+                    <div class="loader-circle"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="container about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Artist Portrait" class="about-image">
+            <div class="about-text">
+                <h3>Hello, I'm Sunny</h3>
+                <p>I'm a passionate digital artist and graphic designer with a love for creating visually compelling narratives. My journey in the arts began over a decade ago, and since then I've developed a distinctive style that blends traditional techniques with modern digital tools.</p>
+                <p>This gallery represents my creative evolution, featuring works that range from vibrant digital paintings to minimalist vector art. Each piece is a reflection of my exploration into the intersection of technology and artistic expression.</p>
+                <p>When I'm not creating art, you can find me teaching workshops, collaborating with other artists, or exploring new mediums to expand my creative horizons.</p>
+                <a href="#" class="portfolio-link">View Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" style="padding-bottom: 80px;">
+        <h2 class="section-title">Get In Touch</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.1rem; margin-bottom: 30px;">For inquiries, collaborations, or just to say hello, feel free to reach out through my social media or email.</p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="mailto:hello@example.com" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-envelope" style="font-size: 1.2rem;"></i> hello@example.com
+                </a>
+                <a href="tel:+1234567890" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-phone" style="font-size: 1.2rem;"></i> +1 (234) 567-890
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Sunny's Art & Design Gallery. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Image Detail Modal -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-img-container"><img src="" alt="" class="modal-img" id="modal-img"></div>
+                <div class="modal-details">
+                    <div class="modal-header">
+                        <div>
+                            <h3 class="modal-title" id="modal-title"></h3>
+                            <p id="modal-artist" style="color: var(--dark-gray);"></p>
+                        </div>
+                    </div>
+                    <p class="modal-description" id="modal-description"></p>
+                    <div>
+                        <h3 style="font-weight: 600;">Details</h3>
+                        <ul style="list-style-position: inside; margin-top: 10px; line-height: 1.8; font-weight: 300;">
+                            <li id="modal-medium"></li>
+                            <li id="modal-dimensions"></li>
+                            <li id="modal-year"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button class="modal-close" id="image-modal-close">&times;</button>
+            <button class="modal-nav" id="prev-btn">&#10094;</button>
+            <button class="modal-nav" id="next-btn">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Load artwork data from JSON file
+            let galleryData = [];
+            
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/sunny-1221/ArtPortfolio/refs/heads/main/gallery-data.json');
+                galleryData = await response.json();
+                
+                // Remove loader and render gallery
+                document.querySelector('.gallery-grid').innerHTML = '';
+                renderGallery(galleryData);
+            } catch (error) {
+                console.error('Error loading gallery data:', error);
+                document.querySelector('.gallery-grid').innerHTML = 
+                    '<p style="text-align: center; color: var(--dark-gray); padding: 40px;">Unable to load gallery. Please try again later.</p>';
+                
+                // Fallback data if JSON fails to load
+                galleryData = [
+                    {
+                        "id": 1,
+                        "src": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80",
+                        "title": "Vibrant Dreams",
+                        "artist": "Sunny",
+                        "description": "A colorful exploration of abstract forms and textures.",
+                        "medium": "Digital Painting",
+                        "dimensions": "1920 x 1080",
+                        "year": "2024",
+                        "category": "Digital Art"
+                    },
+                    {
+                        "id": 2,
+                        "src": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80",
+                        "title": "Urban Geometry",
+                        "artist": "Sunny",
+                        "description": "Architectural photography focusing on geometric patterns in urban environments.",
+                        "medium": "Photography",
+                        "dimensions": "3000 x 2000",
+                        "year": "2023",
+                        "category": "Photography"
+                    }
+                ];
+                
+                renderGallery(galleryData);
+            }
+
+            // --- DOM Elements ---
+            const galleryGrid = document.querySelector('.gallery-grid');
+            const imageModal = document.getElementById('image-modal');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // --- Image Modal Elements ---
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalArtist = document.getElementById('modal-artist');
+            const modalDescription = document.getElementById('modal-description');
+            const modalMedium = document.getElementById('modal-medium');
+            const modalDimensions = document.getElementById('modal-dimensions');
+            const modalYear = document.getElementById('modal-year');
+            const imageModalClose = document.getElementById('image-modal-close');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            let currentFilteredData = [...galleryData];
+            let currentIndex = 0;
+
+            // --- Render Gallery ---
+            const renderGallery = (items) => {
+                galleryGrid.innerHTML = '';
+                
+                if (items.length === 0) {
+                    galleryGrid.innerHTML = 
+                        '<p style="text-align: center; color: var(--dark-gray); padding: 40px;">No artworks found in this category.</p>';
+                    return;
+                }
+                
+                items.forEach(item => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.dataset.id = item.id;
+                    galleryItem.innerHTML = `
+                        <img src="${item.src}" alt="${item.title}" class="gallery-img" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div>
+                                <div class="gallery-title">${item.title}</div>
+                                <div class="gallery-category">${item.artist}</div>
+                            </div>
+                        </div>
+                    `;
+                    galleryGrid.appendChild(galleryItem);
+                });
+            };
+
+            // --- Update Modal Content ---
+            const updateModalContent = (index) => {
+                const artwork = currentFilteredData[index];
+                if (artwork) {
+                    modalImg.src = artwork.src;
+                    modalImg.alt = artwork.title;
+                    modalTitle.textContent = artwork.title;
+                    modalArtist.textContent = `By ${artwork.artist}`;
+                    modalDescription.textContent = artwork.description;
+                    modalMedium.textContent = `Medium: ${artwork.medium || 'N/A'}`;
+                    modalDimensions.textContent = `Dimensions: ${artwork.dimensions || 'N/A'}`;
+                    modalYear.textContent = `Year: ${artwork.year || 'N/A'}`;
+                }
+            };
+
+            // --- Modal Logic ---
+            const openModal = (modalElement) => { 
+                modalElement.classList.add('active'); 
+                document.body.style.overflow = 'hidden'; 
+                document.body.style.position = 'fixed';
+            };
+            
+            const closeModal = (modalElement) => { 
+                modalElement.classList.remove('active'); 
+                document.body.style.overflow = 'auto'; 
+                document.body.style.position = 'static';
+            };
+
+            // --- Event Listeners ---
+            galleryGrid.addEventListener('click', (e) => {
+                const item = e.target.closest('.gallery-item');
+                if (item) {
+                    currentIndex = currentFilteredData.findIndex(art => art.id == item.dataset.id);
+                    if (currentIndex !== -1) {
+                        updateModalContent(currentIndex);
+                        openModal(imageModal);
+                    }
+                }
+            });
+
+            imageModalClose.addEventListener('click', () => closeModal(imageModal));
+            imageModal.addEventListener('click', (e) => e.target === imageModal && closeModal(imageModal));
+            window.addEventListener('keydown', (e) => {
+                if (imageModal.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeModal(imageModal);
+                    } else if (e.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % currentFilteredData.length; 
+                        updateModalContent(currentIndex);
+                    } else if (e.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + currentFilteredData.length) % currentFilteredData.length; 
+                        updateModalContent(currentIndex);
+                    }
+                }
+            });
+
+            // --- Filter Logic ---
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.dataset.filter;
+                    currentFilteredData = (filter === 'all') ? [...galleryData] : galleryData.filter(item => item.category === filter);
+                    renderGallery(currentFilteredData);
+                });
+            });
+
+            // --- Modal Navigation Logic ---
+            nextBtn.addEventListener('click', () => { 
+                currentIndex = (currentIndex + 1) % currentFilteredData.length; 
+                updateModalContent(currentIndex); 
+            });
+            
+            prevBtn.addEventListener('click', () => { 
+                currentIndex = (currentIndex - 1 + currentFilteredData.length) % currentFilteredData.length; 
+                updateModalContent(currentIndex); 
+            });
+
+            // --- Lazy Loading for Images ---
+            if ('IntersectionObserver' in window) {
+                const lazyImageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.gallery-img').forEach(img => {
+                    img.dataset.src = img.src;
+                    img.src = '';
+                    lazyImageObserver.observe(img);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
