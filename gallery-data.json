@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "src": "https://drive.google.com/uc?export=view&id=YOUR_DRIVE_IMAGE_ID",
+        "title": "Artwork Title",
+        "artist": "Sunny",
+        "description": "Description of the artwork",
+        "medium": "Digital Art",
+        "dimensions": "1920x1080",
+        "year": "2024",
+        "category": "Digital Art"
+    },
+    {
+        "id": 2,
+        "src": "https://drive.google.com/uc?export=view&id=ANOTHER_DRIVE_IMAGE_ID",
+        "title": "Another Artwork",
+        "artist": "Sunny",
+        "description": "Another description",
+        "medium": "Photography",
+        "dimensions": "3000x2000",
+        "year": "2023",
+        "category": "Photography"
+    }
+]
