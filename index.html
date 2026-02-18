@@ -632,10 +632,10 @@
         
         <div class="category-filters" id="filters">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Illustrations">Illustrations</button>
+            <button class="filter-btn" data-filter="Social Media">Social Media</button> 
             <button class="filter-btn" data-filter="Branding">Branding</button>
-            <button class="filter-btn" data-filter="Vector Art">Vector Art</button>
             <button class="filter-btn" data-filter="Posters">Posters</button>
+            <button class="filter-btn" data-filter="Illustrations">Illustrations</button>
         </div>
         
         <div class="gallery">
@@ -736,21 +736,56 @@
 
             // UPDATE: Gallery Data with LOCAL IMAGE PATHS
             // Make sure your files are in a folder named "images"
+            // UPDATE: Gallery Data with Your New Images
             const galleryData = [
                 {
                     "id": 1,
-                    "src": "Instagram post - 1.png", 
-                    "title": "Neon Cityscape",
+                    "src": "images/nike-ad.jpg", 
+                    "title": "Nike Air Jordan Promo",
                     "artist": "Sunny",
-                    "description": "A cyberpunk-inspired vector illustration of a futuristic city.",
-                    "medium": "Adobe Illustrator",
-                    "dimensions": "1920 x 1080",
+                    "description": "High-impact social media creative for Nike Air Jordan. Uses bold typography layered behind the product to create depth and emphasis on the brand identity.",
+                    "medium": "Photoshop / Social Media",
+                    "dimensions": "1080 x 1350",
                     "year": "2024",
-                    "category": "Vector Art"
+                    "category": "Branding"
                 },
                 {
                     "id": 2,
-                    "src": "Instagram post - 2.png",
+                    "src": "images/travel-flyer.jpg",
+                    "title": "Travel Agency Campaign",
+                    "artist": "Sunny",
+                    "description": "Promotional travel flyer design using image masking and a clean, fresh color palette to evoke a sense of adventure. Structured layout for pricing and package details.",
+                    "medium": "Social Media Design",
+                    "dimensions": "1080 x 1350",
+                    "year": "2024",
+                    "category": "Posters"
+                },
+                {
+                    "id": 3,
+                    "src": "images/rc-car-ad.jpg",
+                    "title": "E-Commerce Product Ad",
+                    "artist": "Sunny",
+                    "description": "Dark-themed product advertisement for a remote control car. Focuses on sleek lighting, product isolation, and clear call-to-action elements for conversion.",
+                    "medium": "Product Advertising",
+                    "dimensions": "1080 x 1080",
+                    "year": "2023",
+                    "category": "Social Media"
+                },
+                {
+                    "id": 4,
+                    "src": "images/time-tips.jpg",
+                    "title": "Time Management Infographic",
+                    "artist": "Sunny",
+                    "description": "Typographic informational graphic sharing productivity tips. Uses a textured retro style with bold, contrasting fonts to grab attention on social feeds.",
+                    "medium": "Typography / Info Design",
+                    "dimensions": "1080 x 1080",
+                    "year": "2023",
+                    "category": "Social Media"
+                },
+                // ... You can keep your other placeholder images below if you want more content ...
+                {
+                    "id": 5,
+                    "src": "images/branding1.jpg", 
                     "title": "EcoBrand Identity",
                     "artist": "Sunny",
                     "description": "Complete brand identity package for a sustainable clothing line.",
@@ -758,53 +793,8 @@
                     "dimensions": "Multiple",
                     "year": "2023",
                     "category": "Branding"
-                },
-                {
-                    "id": 3,
-                    "src": "Instagram post - 7.jpg",
-                    "title": "Character Design",
-                    "artist": "Sunny",
-                    "description": "Digital character illustration for a mobile game concept.",
-                    "medium": "Digital Painting",
-                    "dimensions": "2000 x 2000",
-                    "year": "2023",
-                    "category": "Illustrations"
-                },
-                {
-                    "id": 4,
-                    "src": 2.png",
-                    "title": "Music Festival Poster",
-                    "artist": "Sunny",
-                    "description": "Typography-focused poster design for a summer jazz festival.",
-                    "medium": "Print Design",
-                    "dimensions": "A3",
-                    "year": "2022",
-                    "category": "Posters"
-                },
-                {
-                    "id": 5,
-                    "src": "Instagram post - 7.jpg",
-                    "title": "Flat Icon Set",
-                    "artist": "Sunny",
-                    "description": "A cohesive set of 50 flat icons for a UI kit.",
-                    "medium": "Vector",
-                    "dimensions": "512px Grid",
-                    "year": "2023",
-                    "category": "Vector Art"
-                },
-                {
-                    "id": 6,
-                    "src": "Instagram post - 7.jpg",
-                    "title": "Tech Startup Logo",
-                    "artist": "Sunny",
-                    "description": "Modern minimalist logo design for a fintech startup.",
-                    "medium": "Logo Design",
-                    "dimensions": "Vector",
-                    "year": "2024",
-                    "category": "Branding"
                 }
             ];
-
             // Initialize the gallery
             const galleryGrid = document.querySelector('.gallery-grid');
             const imageModal = document.getElementById('image-modal');
