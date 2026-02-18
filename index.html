@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunny's Art & Design Gallery</title>
+    <title>Sunny's Graphic Design & Illustration Portfolio</title>
     
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,7 +112,7 @@
         /* --- Hero Section --- */
         .hero {
             position: relative; 
-            height: 80vh; 
+            height: 85vh; 
             min-height: 600px;
             display: flex; 
             align-items: center;
@@ -133,6 +131,7 @@
             object-fit: cover; 
             z-index: -2; 
             transform: scale(1.05);
+            /* Make sure to upload an image named 'hero-bg.jpg' to your images folder */
         }
         
         .hero-overlay {
@@ -141,47 +140,53 @@
             left: 0; 
             width: 100%; 
             height: 100%;
-            background: linear-gradient(45deg, rgba(67, 97, 238, 0.85) 0%, rgba(72, 149, 239, 0.8) 100%); 
+            /* Darker gradient for better text readability */
+            background: linear-gradient(45deg, rgba(20, 20, 20, 0.7) 0%, rgba(67, 97, 238, 0.6) 100%); 
             z-index: -1;
         }
         
         .hero-content { 
-            max-width: 800px; 
+            max-width: 900px; 
             padding: 0 2rem; 
             animation: fadeInDown 1s ease-out; 
         }
         
         .hero h1 { 
-            font-size: 3.5rem; 
+            font-size: 4rem; 
             font-weight: 700; 
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
         }
         
         .hero p { 
-            font-size: 1.25rem; 
+            font-size: 1.4rem; 
             font-weight: 300; 
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-btn {
             display: inline-block;
             background: var(--white);
             color: var(--primary);
-            padding: 12px 30px;
+            padding: 14px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .hero-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            background: var(--primary-dark);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            background: var(--primary);
             color: var(--white);
         }
 
@@ -191,6 +196,30 @@
             background-color: var(--light-gray);
             border-radius: 20px;
             margin: 40px 0;
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
         }
         
         .gallery-grid { 
@@ -545,7 +574,7 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 1200px) {
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 3.5rem; }
             .about-content { gap: 40px; }
         }
         
@@ -577,96 +606,85 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <a href="#" class="logo"><i class="fas fa-palette"></i> Sunny's Gallery</a>
+        <a href="#" class="logo"><i class="fas fa-pen-nib"></i> Sunny's Design</a>
         <nav>
             <ul>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#gallery">Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     
-    <!-- Hero Section -->
     <section class="hero">
-        <img src="https://drive.google.com/uc?export=view&id=1aBCDEfGhIjKlMnOpQrStUvWxYz012345" alt="Abstract Art" class="hero-background">
+        <img src="images/hero-bg.jpg" alt="Graphic Design Background" class="hero-background">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Where Creativity Finds Its Canvas</h1>
-            <p>A curated collection of modern art and captivating graphic designs.</p>
-            <a href="#gallery" class="hero-btn">Explore Gallery</a>
+            <h1>Graphic Designs & Illustrations</h1>
+            <p>Bringing brands to life through vector art, digital illustrations, and compelling visual identity.</p>
+            <a href="#gallery" class="hero-btn">View My Designs</a>
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="gallery" class="container">
-        <h2 class="section-title">Featured Works</h2>
+        <h2 class="section-title">Selected Works</h2>
         
-        <!-- Category Filters -->
         <div class="category-filters" id="filters">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Digital Art">Digital Art</button>
-            <button class="filter-btn" data-filter="Photography">Photography</button>
-            <button class="filter-btn" data-filter="3D & Vector">3D & Vector</button>
-            <button class="filter-btn" data-filter="Typography">Typography</button>
+            <button class="filter-btn" data-filter="Illustrations">Illustrations</button>
+            <button class="filter-btn" data-filter="Branding">Branding</button>
+            <button class="filter-btn" data-filter="Vector Art">Vector Art</button>
             <button class="filter-btn" data-filter="Posters">Posters</button>
         </div>
         
-        <!-- Gallery Grid -->
         <div class="gallery">
             <div class="gallery-grid">
-                <!-- Gallery items will be inserted here by JavaScript -->
-            </div>
+                </div>
         </div>
     </section>
     
-    <!-- About Section -->
     <section id="about" class="container about">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">About the Designer</h2>
         <div class="about-content">
-            <img src="https://drive.google.com/uc?export=view&id=1bCDEFgHiJkLmNoPqRsTuVwXyZ123456" alt="Artist Portrait" class="about-image">
+            <img src="images/profile.jpg" alt="Sunny Profile" class="about-image">
             <div class="about-text">
-                <h3>Hello, I'm Sunny</h3>
-                <p>I'm a passionate digital artist and graphic designer with a love for creating visually compelling narratives. My journey in the arts began over a decade ago, and since then I've developed a distinctive style that blends traditional techniques with modern digital tools.</p>
-                <p>This gallery represents my creative evolution, featuring works that range from vibrant digital paintings to minimalist vector art. Each piece is a reflection of my exploration into the intersection of technology and artistic expression.</p>
-                <p>When I'm not creating art, you can find me teaching workshops, collaborating with other artists, or exploring new mediums to expand my creative horizons.</p>
-                <a href="#" class="portfolio-link">View Full Portfolio</a>
+                <h3>Hi, I'm Sunny</h3>
+                <p>I am a multidisciplinary <strong>Graphic Designer and Illustrator</strong> passionate about visual storytelling. My work bridges the gap between artistic expression and strategic communication, helping brands stand out in a crowded digital landscape.</p>
+                <p>Specializing in vector art, brand identity, and digital illustration, I create designs that are not only visually striking but also meaningful. Whether it's a logo that defines a brand or an illustration that tells a story, I approach every project with creativity and precision.</p>
+                <p>Explore my portfolio to see how I translate ideas into impactful visuals.</p>
+                <a href="https://your-main-portfolio-url.com" class="portfolio-link">Back to Main Portfolio</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="container" style="padding-bottom: 80px;">
-        <h2 class="section-title">Get In Touch</h2>
+        <h2 class="section-title">Let's Create Together</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p style="font-size: 1.1rem; margin-bottom: 30px;">For inquiries, collaborations, or just to say hello, feel free to reach out through my social media or email.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 30px;">Looking for a custom design or illustration? Feel free to reach out.</p>
             <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="mailto:hello@example.com" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500;">
-                    <i class="fas fa-envelope" style="font-size: 1.2rem;"></i> hello@example.com
+                <a href="mailto:taiparthisunny124@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-envelope" style="font-size: 1.2rem;"></i> taiparthisunny124@gmail.com
                 </a>
-                <a href="tel:+1234567890" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500;">
-                    <i class="fas fa-phone" style="font-size: 1.2rem;"></i> +1 (234) 567-890
+                <a href="tel:8331844559" style="display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-phone" style="font-size: 1.2rem;"></i> 8331844559
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-socials">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-behance"></i></a>
             <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://linkedin.com/in/tatiparthi-sunny"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> Sunny's Art & Design Gallery. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Sunny's Design Gallery. All rights reserved.</p>
         </div>
     </footer>
     
-    <!-- Image Detail Modal -->
     <div class="modal" id="image-modal">
         <div class="modal-content">
             <div class="modal-body">
@@ -675,7 +693,7 @@
                     <div class="modal-header">
                         <div>
                             <h3 class="modal-title" id="modal-title"></h3>
-                            <p id="modal-artist" style="color: var(--dark-gray);"></p>
+                            <p id="modal-category" style="color: var(--dark-gray);"></p>
                         </div>
                     </div>
                     <p class="modal-description" id="modal-description"></p>
@@ -716,73 +734,74 @@
                 });
             });
 
-            // Embedded gallery data with Google Drive image links
+            // UPDATE: Gallery Data with LOCAL IMAGE PATHS
+            // Make sure your files are in a folder named "images"
             const galleryData = [
                 {
                     "id": 1,
-                    "src": "https://drive.google.com/uc?export=view&id=1f37NAKPp3KOO8Iwbljg0_WB7fzmPoYzJ",
-                    "title": "Vibrant Dreams",
+                    "src": "images/illustration1.jpg", 
+                    "title": "Neon Cityscape",
                     "artist": "Sunny",
-                    "description": "A colorful exploration of abstract forms and textures.",
-                    "medium": "Digital Painting",
+                    "description": "A cyberpunk-inspired vector illustration of a futuristic city.",
+                    "medium": "Adobe Illustrator",
                     "dimensions": "1920 x 1080",
                     "year": "2024",
-                    "category": "Digital Art"
+                    "category": "Vector Art"
                 },
                 {
                     "id": 2,
-                    "src": "https://drive.google.com/uc?export=view&id=1eeUwRulSQ-ocxicO8W4XRSPiLvWfyrf5",
-                    "title": "Urban Geometry",
+                    "src": "images/branding1.jpg",
+                    "title": "EcoBrand Identity",
                     "artist": "Sunny",
-                    "description": "Architectural photography focusing on geometric patterns.",
-                    "medium": "Photography",
-                    "dimensions": "3000 x 2000",
+                    "description": "Complete brand identity package for a sustainable clothing line.",
+                    "medium": "Branding / Logo Design",
+                    "dimensions": "Multiple",
                     "year": "2023",
-                    "category": "Photography"
+                    "category": "Branding"
                 },
                 {
                     "id": 3,
-                    "src": "https://drive.google.com/uc?export=view&id=1eEFgHiJkLmNoPqRsTuVwXyZ123456",
-                    "title": "Digital Landscape",
+                    "src": "images/illustration2.jpg",
+                    "title": "Character Design",
                     "artist": "Sunny",
-                    "description": "A surreal digital landscape blending organic elements.",
-                    "medium": "3D Rendering",
-                    "dimensions": "2500 x 1667",
+                    "description": "Digital character illustration for a mobile game concept.",
+                    "medium": "Digital Painting",
+                    "dimensions": "2000 x 2000",
                     "year": "2023",
-                    "category": "3D & Vector"
+                    "category": "Illustrations"
                 },
                 {
                     "id": 4,
-                    "src": "https://drive.google.com/uc?export=view&id=1fEFgHiJkLmNoPqRsTuVwXyZ123456",
-                    "title": "Minimalist Typography",
+                    "src": "images/poster1.jpg",
+                    "title": "Music Festival Poster",
                     "artist": "Sunny",
-                    "description": "Clean typographic design with bold contrast.",
-                    "medium": "Vector Art",
-                    "dimensions": "1500 x 1000",
+                    "description": "Typography-focused poster design for a summer jazz festival.",
+                    "medium": "Print Design",
+                    "dimensions": "A3",
                     "year": "2022",
-                    "category": "Typography"
-                },
-                {
-                    "id": 5,
-                    "src": "https://drive.google.com/uc?export=view&id=1gEFgHiJkLmNoPqRsTuVwXyZ123456",
-                    "title": "Concert Poster",
-                    "artist": "Sunny",
-                    "description": "Vintage-inspired music poster design.",
-                    "medium": "Digital Illustration",
-                    "dimensions": "2480 x 3508",
-                    "year": "2021",
                     "category": "Posters"
                 },
                 {
-                    "id": 6,
-                    "src": "https://drive.google.com/uc?export=view&id=1hEFgHiJkLmNoPqRsTuVwXyZ123456",
-                    "title": "Abstract Composition",
+                    "id": 5,
+                    "src": "images/vector1.jpg",
+                    "title": "Flat Icon Set",
                     "artist": "Sunny",
-                    "description": "Experimental composition exploring color theory.",
-                    "medium": "Mixed Media",
-                    "dimensions": "1800 x 1200",
-                    "year": "2020",
-                    "category": "Digital Art"
+                    "description": "A cohesive set of 50 flat icons for a UI kit.",
+                    "medium": "Vector",
+                    "dimensions": "512px Grid",
+                    "year": "2023",
+                    "category": "Vector Art"
+                },
+                {
+                    "id": 6,
+                    "src": "images/branding2.jpg",
+                    "title": "Tech Startup Logo",
+                    "artist": "Sunny",
+                    "description": "Modern minimalist logo design for a fintech startup.",
+                    "medium": "Logo Design",
+                    "dimensions": "Vector",
+                    "year": "2024",
+                    "category": "Branding"
                 }
             ];
 
@@ -792,7 +811,7 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             const modalImg = document.getElementById('modal-img');
             const modalTitle = document.getElementById('modal-title');
-            const modalArtist = document.getElementById('modal-artist');
+            const modalCategory = document.getElementById('modal-category');
             const modalDescription = document.getElementById('modal-description');
             const modalMedium = document.getElementById('modal-medium');
             const modalDimensions = document.getElementById('modal-dimensions');
@@ -810,7 +829,7 @@
                 
                 if (items.length === 0) {
                     galleryGrid.innerHTML = 
-                        '<p style="text-align: center; color: var(--dark-gray); padding: 40px;">No artworks found in this category.</p>';
+                        '<p style="text-align: center; color: var(--dark-gray); padding: 40px; width: 100%;">No designs found in this category.</p>';
                     return;
                 }
                 
@@ -823,7 +842,7 @@
                         <div class="gallery-overlay">
                             <div>
                                 <div class="gallery-title">${item.title}</div>
-                                <div class="gallery-category">${item.artist}</div>
+                                <div class="gallery-category">${item.category}</div>
                             </div>
                         </div>
                     `;
@@ -838,7 +857,7 @@
                     modalImg.src = artwork.src;
                     modalImg.alt = artwork.title;
                     modalTitle.textContent = artwork.title;
-                    modalArtist.textContent = `By ${artwork.artist}`;
+                    modalCategory.textContent = artwork.category;
                     modalDescription.textContent = artwork.description;
                     modalMedium.textContent = `Medium: ${artwork.medium || 'N/A'}`;
                     modalDimensions.textContent = `Dimensions: ${artwork.dimensions || 'N/A'}`;
@@ -850,13 +869,13 @@
             function openModal() { 
                 imageModal.classList.add('active'); 
                 document.body.style.overflow = 'hidden'; 
-                document.body.style.position = 'fixed';
+                // document.body.style.position = 'fixed'; // Removed to prevent scroll jumping
             }
             
             function closeModal() { 
                 imageModal.classList.remove('active'); 
                 document.body.style.overflow = 'auto'; 
-                document.body.style.position = 'static';
+                // document.body.style.position = 'static';
             }
 
             // Event listeners
